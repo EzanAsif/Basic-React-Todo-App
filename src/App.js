@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext} from 'react'
+
+import { Header } from "./Components/Header";
+import { TodoInput } from "./Components/TodoInput";
+import {TodoList} from './Components/TodoList'
+
+import {GlobalProvider} from './Config/Context'
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider className="App">
+      <Header />
+      <div className="Content">
+        <TodoInput />
+        <TodoList />
+      </div>
+    </GlobalProvider>
   );
 }
 
